@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 
 public class Main {
@@ -7,6 +8,8 @@ public class Main {
         File f = new File("./Archivos/enunciado.dat");
         File f2 = new File("./Archivos/enunciadoTxt.txt");
         File directorio= new File("./Ejercicios");
+        File ficheroDni = new File("./Ejercicios/index.txt");
+
         if(!f2.exists()){
             try{
                 f2.createNewFile();
@@ -22,6 +25,7 @@ public class Main {
         System.out.println(enunciado);
         escribirEnunciado(f2,enunciado);
         crearDirectorio(directorio);
+        arrayDNI(ficheroDni);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -62,8 +66,31 @@ public class Main {
 
     }
 
-    public static void arrayDNI(){
-        String nombre;
+    public static void arrayDNI(File f) throws IOException {
+        FileReader fR = new FileReader(f);
+        BufferedReader bR = new BufferedReader(fR);
+
+        ArrayList <String> arrayDni = new ArrayList<>();
+        String Dni="53675054T";
+
+        String linea;
+        int puesto=1;
+        boolean encontrado=false;
+        try{
+            while((linea=bR.readLine())!=null){
+
+                arrayDni.add(linea);
+                if (arrayDni.contains(Dni) && encontrado==false) {
+                    System.out.println("La posicion de mi DNI es: "+puesto);
+                    encontrado=true;
+                }else{
+                    puesto++;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 
