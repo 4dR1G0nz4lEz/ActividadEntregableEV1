@@ -8,4 +8,4 @@ Crear un proyecto a parte, con un programa compuesto por diversas funciones, las
 6) El fichero "flags.dat" es un fichero de acceso aleatorio. Tienes que acceder al registro en la posición de tu DNI en el array anterior. Cada registro es de 40 bytes de largo (ej: dni en posición del array 0 -> acceder al primer registro de flags.dat)
 7) (2pt) Crear un programa que lea dicho registro y lo escriba en un fichero de texto llamado "output.txt" (no escribir los caracteres que son igual a null)
 8) (1pt) ¿Qué número es si decodificas dicho registro en base 64? Puedes probar con un decodificador online. Poner dicho número en los comentarios de la entrega
-9) (1pt) El código legible, el nombre de las variables, el formato y tabulación del código fuente y los comentarios contarán para la puntuación del ejercicio.
+9) (1pt) El código legible, el nombre de las variables, el formato y tabulación del código fuente y los comentarios contarán para la puntuación del e

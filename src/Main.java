@@ -13,6 +13,8 @@ public class Main {
         File ficheroAleatorio= new File("./Ejercicios/flags.dat");
         RandomAccessFile rA= new RandomAccessFile(ficheroAleatorio,"rw");
 
+        File ficheroRegistroDecodificado = new File("./Ejercicios/output.txt");
+
         if(!f2.exists()){
             try{
                 f2.createNewFile();
@@ -21,8 +23,16 @@ public class Main {
             }
         }
 
-        String enunciado;
+        if(!ficheroRegistroDecodificado.exists()){
+            try{
+                ficheroRegistroDecodificado.createNewFile();
+            }catch (IOException e3){
+                e3.printStackTrace();
+            }
+        }
 
+        String enunciado;
+        String DNIrandom;
         try{
         enunciado=leerEnunciado(f);
         System.out.println(enunciado);
@@ -30,6 +40,9 @@ public class Main {
         crearDirectorio(directorio);
         int puesto=arrayDNI(ficheroDni);
         System.out.println(puesto);
+        DNIrandom=accesoAleatorio(rA,puesto-1,40);
+        leerEscribirRegistro(ficheroRegistroDecodificado,DNIrandom);
+        System.out.println("Al decodificar el registro en base 64, el resultado es 8");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -100,10 +113,26 @@ public class Main {
         return posicion;
     }
 
-    public static void accesoAleatorio(RandomAccessFile randomF,int posicion){
-
-
+    public static String accesoAleatorio(RandomAccessFile randomF,long order, long size) throws IOException {
+        randomF.seek(order*size);
+        StringBuilder sB =new StringBuilder();
+        for(int i=0;i<size/2;i++){
+            sB.append(randomF.readChar());
+        }
+        System.out.println(sB.toString());
+        return sB.toString();
     }
-
+    public static void leerEscribirRegistro(File f, String registro) throws IOException {
+        String flag = "";
+        int i;
+        for (i=0;i<registro.length();i++){
+            if(registro.charAt(i)!='\0'){
+                flag+=registro.charAt(i);
+            }
+        }
+        FileWriter fW=new FileWriter(f);
+        fW.write(flag);
+        fW.close();
+        }
 
 }
