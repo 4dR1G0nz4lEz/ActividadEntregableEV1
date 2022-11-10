@@ -3,12 +3,15 @@ import java.util.ArrayList;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         File f = new File("./Archivos/enunciado.dat");
         File f2 = new File("./Archivos/enunciadoTxt.txt");
         File directorio= new File("./Ejercicios");
         File ficheroDni = new File("./Ejercicios/index.txt");
+
+        File ficheroAleatorio= new File("./Ejercicios/flags.dat");
+        RandomAccessFile rA= new RandomAccessFile(ficheroAleatorio,"rw");
 
         if(!f2.exists()){
             try{
@@ -25,7 +28,8 @@ public class Main {
         System.out.println(enunciado);
         escribirEnunciado(f2,enunciado);
         crearDirectorio(directorio);
-        arrayDNI(ficheroDni);
+        int puesto=arrayDNI(ficheroDni);
+        System.out.println(puesto);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -66,7 +70,7 @@ public class Main {
 
     }
 
-    public static void arrayDNI(File f) throws IOException {
+    public static int arrayDNI(File f) throws IOException {
         FileReader fR = new FileReader(f);
         BufferedReader bR = new BufferedReader(fR);
 
@@ -74,15 +78,18 @@ public class Main {
         String Dni="53675054T";
 
         String linea;
-        int puesto=1;
+        int puesto=0;
         boolean encontrado=false;
+        int posicion=0;
+
         try{
             while((linea=bR.readLine())!=null){
 
                 arrayDni.add(linea);
                 if (arrayDni.contains(Dni) && encontrado==false) {
-                    System.out.println("La posicion de mi DNI es: "+puesto);
+                    System.out.println("La posicion de mi DNI es: "+(puesto+1));
                     encontrado=true;
+                    posicion=puesto+1;
                 }else{
                     puesto++;
                 }
@@ -90,17 +97,13 @@ public class Main {
         }catch(Exception e){
             e.printStackTrace();
         }
-
+        return posicion;
     }
 
+    public static void accesoAleatorio(RandomAccessFile randomF,int posicion){
 
 
-
-
-
-
-
-
+    }
 
 
 }
