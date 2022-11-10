@@ -1,0 +1,11 @@
+Tema 2 Ejercicio 2.2: Trabajo con ficheros:
+Crear un proyecto a parte, con un programa compuesto por diversas funciones, las cuales son llamadas desde el main():
+1) (1pt) Función que lea este fichero ( leerEnunciado(args:File) )
+2) (2pt) Función que escriba los contenidos de este enunciado en un fichero de texto ( escribirTextoEnunciado(args:String,File) )
+3) (0,5pt) Crear una carpeta llamada 'ejercicios' dentro de la carpeta raíz
+4) (0,5pt) Descargar manualmente (sin clonar) en dicha carpeta los dos ficheros del repositorio 'https://github.com/rodri-afa/2add-e2.2'
+5) (2pt) El fichero "índices.txt" contiene un conjunto de DNIs, almacenarlos en un array que NO reordene los elementos y sacar la posición de vuestro DNI
+6) El fichero "flags.dat" es un fichero de acceso aleatorio. Tienes que acceder al registro en la posición de tu DNI en el array anterior. Cada registro es de 40 bytes de largo (ej: dni en posición del array 0 -> acceder al primer registro de flags.dat)
+7) (2pt) Crear un programa que lea dicho registro y lo escriba en un fichero de texto llamado "output.txt" (no escribir los caracteres que son igual a null)
+8) (1pt) ¿Qué número es si decodificas dicho registro en base 64? Puedes probar con un decodificador online. Poner dicho número en los comentarios de la entrega
+9) (1pt) El código legible, el nombre de las variables, el formato y tabulación del código fuente y los comentarios contarán para la puntuación del ejercicio.
