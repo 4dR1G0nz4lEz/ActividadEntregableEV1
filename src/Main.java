@@ -63,7 +63,7 @@ public class Main {
     }
 
     public static void arrayDNI(){
-        
+        String nombre;
     }
 
 
